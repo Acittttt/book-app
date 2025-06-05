@@ -62,6 +62,48 @@ def get_books():
     
     return jsonify(books)
 
+@app.route('/api/books/search', methods=['GET'])
+def search_books():
+    query = request.args.get('query', '').lower()
+    genre = request.args.get('genre', '').lower()
+    sort_by = request.args.get('sort_by', 'title')  # title, rating, author
+    sort_order = request.args.get('sort_order', 'asc')  # asc, desc
+    
+    # Filter books based on search query and genre
+    filtered_books = books
+    
+    if query:
+        filtered_books = [
+            book for book in filtered_books
+            if query in book['title'].lower() or 
+               query in book['author'].lower() or
+               query in book['genre'].lower()
+        ]
+    
+    if genre and genre != 'all':
+        filtered_books = [
+            book for book in filtered_books
+            if book['genre'].lower() == genre
+        ]
+    
+    # Sort books
+    reverse = sort_order == 'desc'
+    if sort_by == 'rating':
+        filtered_books = sorted(filtered_books, key=lambda x: x['rating'], reverse=reverse)
+    elif sort_by == 'author':
+        filtered_books = sorted(filtered_books, key=lambda x: x['author'].lower(), reverse=reverse)
+    else:  # default sort by title
+        filtered_books = sorted(filtered_books, key=lambda x: x['title'].lower(), reverse=reverse)
+    
+    return jsonify(filtered_books)
+
+@app.route('/api/books/<int:book_id>', methods=['GET'])
+def get_book(book_id):
+    book = next((book for book in books if book['id'] == book_id), None)
+    if book:
+        return jsonify(book)
+    return jsonify({'error': 'Book not found'}), 404
+
 @app.route('/api/books', methods=['POST'])
 def add_book():
     data = request.json
@@ -73,7 +115,10 @@ def add_book():
         'rating': data.get('rating', 0),  # Book rating (0-5)
         'pages': data.get('pages', 0),    # Number of pages
         'genre': data.get('genre', ''),   # Book genre
-        'status': data.get('status', 'want-to-read')  # Reading status
+        'status': data.get('status', 'want-to-read'),  # Reading status
+        'description': data.get('description', ''),  # Book description
+        'published_date': data.get('published_date', ''),  # Publication date
+        'isbn': data.get('isbn', '')  # ISBN number
     }
     books.append(book)
     save_books(books)  # Save to JSON file
@@ -99,6 +144,9 @@ def update_book(book_id):
             book['pages'] = data.get('pages', book['pages'])
             book['genre'] = data.get('genre', book['genre'])
             book['status'] = data.get('status', book['status'])
+            book['description'] = data.get('description', book.get('description', ''))
+            book['published_date'] = data.get('published_date', book.get('published_date', ''))
+            book['isbn'] = data.get('isbn', book.get('isbn', ''))
             save_books(books)  # Save to JSON file
             return jsonify(book)
     return jsonify({'error': 'Book not found'}), 404

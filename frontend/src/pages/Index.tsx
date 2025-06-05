@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Book, Search, User, TrendingUp, Plus, Library } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import BookCard from '../components/BookCard';
 import ProgressCard from '../components/ProgressCard';
 import BottomNav from '../components/BottomNav';
@@ -10,6 +11,17 @@ import { books, currentlyReading, readingStats } from '../data/dummyData';
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [libraryView, setLibraryView] = useState('my-books'); // 'my-books' or 'browse'
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle navigation state from book detail
+    if (location.state?.activeTab) {
+      setActiveTab(location.state.activeTab);
+    }
+    if (location.state?.libraryView) {
+      setLibraryView(location.state.libraryView);
+    }
+  }, [location.state]);
 
   const renderContent = () => {
     switch (activeTab) {
