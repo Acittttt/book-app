@@ -165,7 +165,7 @@ npm run dev
             # Back button and book details
         </div>
     );
-  };
+   };
    ```
    - Added BookDetail component to display detailed book information (title, author, cover, rating, pages, genre, status).
    - Supports updating reading status via API calls.
