@@ -28,10 +28,7 @@
       "rating": 4.6,
       "pages": 328,
       "genre": "Dystopian",
-      "status": "reading",
-      "description": "",
-      "published_date": "",
-      "isbn": ""
+      "status": "want-to-read"
     },
     {
       "id": 4,
@@ -41,10 +38,7 @@
       "rating": 4.4,
       "pages": 432,
       "genre": "Romance",
-      "status": "want-to-read",
-      "description": "",
-      "published_date": "",
-      "isbn": ""
+      "status": "want-to-read"
     },
     {
       "id": 5,
@@ -64,10 +58,7 @@
       "rating": 4.7,
       "pages": 309,
       "genre": "Fantasy",
-      "status": "want-to-read",
-      "description": "",
-      "published_date": "",
-      "isbn": ""
+      "status": "want-to-read"
     },
     {
       "id": 7,
@@ -87,10 +78,7 @@
       "rating": 4.3,
       "pages": 688,
       "genre": "Sci-Fi",
-      "status": "want-to-read",
-      "description": "",
-      "published_date": "",
-      "isbn": ""
+      "status": "want-to-read"
     }
   ]
 }

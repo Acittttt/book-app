@@ -12,9 +12,6 @@ interface Book {
   pages: number;
   genre: string;
   status: 'read' | 'reading' | 'want-to-read';
-  description?: string;
-  published_date?: string;
-  isbn?: string;
 }
 
 const BookDetail = () => {
@@ -137,27 +134,12 @@ const BookDetail = () => {
                 <BookOpen size={16} className="mr-2" />
                 <span>{book.pages} pages</span>
               </div>
-              <div className="flex items-center text-gray-600">
-                <Calendar size={16} className="mr-2" />
-                <span>{book.published_date || 'Unknown date'}</span>
-              </div>
-              <div className="flex items-center text-gray-600">
-                <Hash size={16} className="mr-2" />
-                <span>{book.isbn || 'No ISBN'}</span>
-              </div>
               <div>
                 <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
                   {book.genre}
                 </span>
               </div>
             </div>
-
-            {book.description && (
-              <div className="mb-6">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">Description</h2>
-                <p className="text-gray-600 leading-relaxed">{book.description}</p>
-              </div>
-            )}
 
             {/* Reading Status */}
             <div>

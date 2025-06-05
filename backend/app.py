@@ -115,10 +115,7 @@ def add_book():
         'rating': data.get('rating', 0),  # Book rating (0-5)
         'pages': data.get('pages', 0),    # Number of pages
         'genre': data.get('genre', ''),   # Book genre
-        'status': data.get('status', 'want-to-read'),  # Reading status
-        'description': data.get('description', ''),  # Book description
-        'published_date': data.get('published_date', ''),  # Publication date
-        'isbn': data.get('isbn', '')  # ISBN number
+        'status': data.get('status', 'want-to-read')
     }
     books.append(book)
     save_books(books)  # Save to JSON file
@@ -144,9 +141,6 @@ def update_book(book_id):
             book['pages'] = data.get('pages', book['pages'])
             book['genre'] = data.get('genre', book['genre'])
             book['status'] = data.get('status', book['status'])
-            book['description'] = data.get('description', book.get('description', ''))
-            book['published_date'] = data.get('published_date', book.get('published_date', ''))
-            book['isbn'] = data.get('isbn', book.get('isbn', ''))
             save_books(books)  # Save to JSON file
             return jsonify(book)
     return jsonify({'error': 'Book not found'}), 404
