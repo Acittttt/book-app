@@ -90,7 +90,7 @@ const BookDetail = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      {/* Back Button */}
+      // Back Button
       <button
         onClick={handleGoBack}
         className="flex items-center text-gray-600 hover:text-gray-800 mb-6"
@@ -101,7 +101,7 @@ const BookDetail = () => {
 
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="md:flex">
-          {/* Book Cover */}
+          // Book Cover
           <div className="md:w-1/3 bg-gradient-to-br from-blue-100 to-purple-100 p-6">
             <div className="aspect-[3/4] rounded-lg flex items-center justify-center bg-white/50">
               {book.cover ? (
@@ -116,7 +116,7 @@ const BookDetail = () => {
             </div>
           </div>
 
-          {/* Book Details */}
+          // Book Details
           <div className="md:w-2/3 p-6">
             <div className="flex justify-between items-start">
               <div>
@@ -141,7 +141,7 @@ const BookDetail = () => {
               </div>
             </div>
 
-            {/* Reading Status */}
+            // Reading Status
             <div>
               <h2 className="text-lg font-semibold text-gray-800 mb-2">Reading Status</h2>
               <div className="flex space-x-2">

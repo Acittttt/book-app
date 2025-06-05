@@ -140,7 +140,7 @@ const BrowseLibrary = () => {
         </div>
       </div>
 
-      {/* Search Bar */}
+      // Search Bar
       <div className="relative">
         <Search className="absolute left-3 top-3 text-gray-400" size={20} />
         <input
@@ -152,7 +152,7 @@ const BrowseLibrary = () => {
         />
       </div>
 
-      {/* Genre Filter */}
+      // Genre Filter
       <div className="relative mb-4">
         <div className="flex overflow-x-auto no-scrollbar pb-2 -mx-4 px-4">
           <div className="flex space-x-2">
@@ -173,7 +173,7 @@ const BrowseLibrary = () => {
         </div>
       </div>
 
-      {/* Add custom scrollbar styling */}
+      // Add custom scrollbar styling
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -184,7 +184,7 @@ const BrowseLibrary = () => {
         }
       `}</style>
 
-      {/* Results Count */}
+      // Results Count
       <p className="text-sm text-gray-600">
         {filteredBooks.length} book{filteredBooks.length !== 1 ? 's' : ''} found
       </p>
@@ -195,7 +195,7 @@ const BrowseLibrary = () => {
         </div>
       )}
 
-      {/* Books Grid */}
+      // Books Grid
       <div className="grid grid-cols-2 gap-4">
         {filteredBooks.map((book) => (
           <Link

@@ -28,7 +28,7 @@ const Index = () => {
       case 'library':
         return (
           <div className="space-y-4">
-            {/* Library Navigation */}
+            // Library Navigation
             <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
               <button
                 onClick={() => setLibraryView('my-books')}
@@ -54,7 +54,7 @@ const Index = () => {
               </button>
             </div>
 
-            {/* Content based on selected view */}
+            // Content based on selected view
             {libraryView === 'my-books' ? (
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
