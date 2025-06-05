@@ -87,6 +87,3 @@ npm run dev
 - Add book recommendations
 - Enhance reading progress tracking
 - Add dark mode support
-
-
-
